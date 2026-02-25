@@ -5,6 +5,6 @@ from blogs.views import blog_detail_page_view, blog_list_page_view
 app_name='blogs'
 
 urlpatterns =[
-    path('blog-detail/', blog_detail_page_view, name='detail'),
-    path('blog-list/', blog_list_page_view, name='list'),
+    path('<int:pk>/', blog_detail_page_view, name='detail'),
+    path('', blog_list_page_view, name='list'),
 ]
