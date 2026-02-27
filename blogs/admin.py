@@ -1,6 +1,7 @@
 from django.contrib import admin
 
 from blogs.models import Author, Category,Tag,Blog
+from shared.models import AboutUs
 
 
 @admin.register(Author)
@@ -27,3 +28,4 @@ class BlogAdmin(admin.ModelAdmin):
     list_display = ['id','title','is_active','created_at']
     search_fields = ['title']
     list_filter = ['authors','categories','tags', 'created_at','is_active','updated_at']
+

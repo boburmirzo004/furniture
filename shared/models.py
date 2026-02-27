@@ -6,3 +6,17 @@ class BaseModel(models.Model):
 
     class Meta:
         abstract = True
+
+
+class AboutUs(BaseModel):
+    name = models.CharField(max_length=128)
+    profession = models.CharField(max_length=64)
+    info = models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        db_table = 'abouts'
+        verbose_name ='about'
+        verbose_name_plural = 'abouts'
