@@ -36,11 +36,13 @@
                 <div class="container">
                     <h1 class="text-center title-page">Log In</h1>
                     <div class="login-form">
-                        <form id="customer-form" action="#" method="post">
+                        <form id="customer-form" action="{% url 'users:login' %}" method="post">
+                            {% csrf_token %}
                             <div>
                                 <input type="hidden" name="back" value="my-account">
                                 <div class="form-group no-gutters">
-                                    <input class="form-control" name="email" type="email" placeholder=" Email">
+                                    <input class="form-control" name="identifier" type="text"
+                                           placeholder=" Email or Username ">
                                 </div>
                                 <div class="form-group no-gutters">
                                     <div class="input-group js-parent-focus">
@@ -50,7 +52,7 @@
                                 </div>
                                 <div class="no-gutters text-center">
                                     <div class="forgot-password">
-                                        <a href="reset-password.html" rel="nofollow">
+                                        <a href="{% url 'users:reset-password' %}" rel="nofollow">
                                             Forgot your password?
                                         </a>
                                     </div>
