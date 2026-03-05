@@ -1,9 +1,10 @@
 {% load static %}
+{% load i18n %}
 <div id="mobile-pagemenu" class="mobile-boxpage d-flex hidden-md-up active d-md-none">
     <div class="content-boxpage col">
         <div class="box-header d-flex justify-content-between align-items-center">
-            <div class="title-box">Menu</div>
-            <div class="close-box">Close</div>
+            <div class="title-box">{% trans 'Menu' %}</div>
+            <div class="close-box">{% trans 'Close' %}</div>
         </div>
         <div class="box-content">
             <nav>
@@ -11,11 +12,11 @@
                 <div id="megamenu" class="nov-megamenu clearfix">
                     <ul class="menu level1">
                         <li class="item home-page has-sub">
-                                <span class="arrow collapsed" data-toggle="collapse" data-target="#home1"
-                                      aria-expanded="true" role="status">
-                                    <i class="zmdi zmdi-minus"></i>
-                                    <i class="zmdi zmdi-plus"></i>
-                                </span>
+                            <span class="arrow collapsed" data-toggle="collapse" data-target="#home1"
+                                aria-expanded="true" role="status">
+                                <i class="zmdi zmdi-minus"></i>
+                                <i class="zmdi zmdi-plus"></i>
+                            </span>
                             <a href="home.html" title="Home">
                                 <i class="fa fa-home" aria-hidden="true"></i>Home</a>
                             <div class="subCategory collapse" id="home1" aria-expanded="true" role="status">
@@ -39,11 +40,11 @@
                             </div>
                         </li>
                         <li class="item has-sub">
-                                <span class="arrow collapsed" data-toggle="collapse" data-target="#blog"
-                                      aria-expanded="false" role="status">
-                                    <i class="zmdi zmdi-minus"></i>
-                                    <i class="zmdi zmdi-plus"></i>
-                                </span>
+                            <span class="arrow collapsed" data-toggle="collapse" data-target="#blog"
+                                aria-expanded="false" role="status">
+                                <i class="zmdi zmdi-minus"></i>
+                                <i class="zmdi zmdi-plus"></i>
+                            </span>
                             <a href="#" title="Blog">
                                 <i class="fa fa-address-book" aria-hidden="true"></i>Blog</a>
 
@@ -76,11 +77,11 @@
                             </div>
                         </li>
                         <li class="item group has-sub">
-                                <span class="arrow collapsed" data-toggle="collapse" data-target="#page"
-                                      aria-expanded="false" role="status">
-                                    <i class="zmdi zmdi-minus"></i>
-                                    <i class="zmdi zmdi-plus"></i>
-                                </span>
+                            <span class="arrow collapsed" data-toggle="collapse" data-target="#page"
+                                aria-expanded="false" role="status">
+                                <i class="zmdi zmdi-minus"></i>
+                                <i class="zmdi zmdi-plus"></i>
+                            </span>
                             <a href="#" title="Page">
                                 <i class="fa fa-file-text-o" aria-hidden="true"></i>page</a>
                             <div class="subCategory collapse" id="page" aria-expanded="true" role="status">

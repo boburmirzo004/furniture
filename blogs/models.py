@@ -1,32 +1,55 @@
 from django.db import models
-
 from shared.models import BaseModel
+from django.utils.translation import gettext_lazy as _
 
 
 class Author(BaseModel):
-    full_name = models.CharField(max_length=128)
-    image = models.ImageField(upload_to='authors/')
-    about = models.CharField(max_length=255)
-    professions = models.CharField(max_length=128)
-    is_active = models.BooleanField(default=True)
+    full_name = models.CharField(
+        max_length=128,
+        verbose_name=_("Full name")
+    )
+    image = models.ImageField(
+        upload_to='authors/',
+        verbose_name=_("Image")
+    )
+    about = models.CharField(
+        max_length=255,
+        verbose_name=_("About")
+    )
+    professions = models.CharField(
+        max_length=128,
+        verbose_name=_("Professions")
+    )
+    is_active = models.BooleanField(
+        default=True,
+        verbose_name=_("Is active")
+    )
 
     def __str__(self):
         return self.full_name
 
     class Meta:
         db_table = "authors"
-        verbose_name = "author"
-        verbose_name_plural = "authors"
+        verbose_name = _("Author")
+        verbose_name_plural = _("Authors")
 
 
 class Category(BaseModel):
-    title = models.CharField(max_length=128)
-    is_active = models.BooleanField(default=True)
+    title = models.CharField(
+        max_length=128,
+        verbose_name=_("Title")
+    )
+    is_active = models.BooleanField(
+        default=True,
+        verbose_name=_("Is active")
+    )
     parent = models.ForeignKey(
         "self",
         on_delete=models.PROTECT,
         related_name="children",
-        null=True, blank=True
+        null=True,
+        blank=True,
+        verbose_name=_("Parent category")
     )
 
     def __str__(self):
@@ -34,59 +57,83 @@ class Category(BaseModel):
 
     class Meta:
         db_table = "categories"
-        verbose_name = "category"
-        verbose_name_plural = "categories"
+        verbose_name = _("Category")
+        verbose_name_plural = _("Categories")
 
 
 class Tag(BaseModel):
-    title = models.CharField(max_length=128)
-    is_active = models.BooleanField(default=True)
+    title = models.CharField(
+        max_length=128,
+        verbose_name=_("Title")
+    )
+    is_active = models.BooleanField(
+        default=True,
+        verbose_name=_("Is active")
+    )
 
     def __str__(self):
         return self.title
 
     class Meta:
         db_table = "tags"
-        verbose_name = "tag"
-        verbose_name_plural = "tags"
+        verbose_name = _("Tag")
+        verbose_name_plural = _("Tags")
 
 
 class BlogStatus(models.TextChoices):
-    PUBLISHED = "PUBLISHED", "Published"
-    DRAFT = "DRAFT", "Draft"
-    DELETED = "DELETED", "Deleted"
+    PUBLISHED = "PUBLISHED", _("Published")
+    DRAFT = "DRAFT", _("Draft")
+    DELETED = "DELETED", _("Deleted")
 
 
 class Blog(BaseModel):
-    title = models.CharField(max_length=128)
-    short_description = models.CharField(max_length=255)
-    image = models.ImageField(upload_to="blogs/")
-    long_description = models.TextField()
+    title = models.CharField(
+        max_length=128,
+        verbose_name=_("Title")
+    )
+    short_description = models.CharField(
+        max_length=255,
+        verbose_name=_("Short description")
+    )
+    image = models.ImageField(
+        upload_to="blogs/",
+        verbose_name=_("Image")
+    )
+    long_description = models.TextField(
+        verbose_name=_("Long description")
+    )
 
     categories = models.ManyToManyField(
         Category,
-        related_name="blogs"
+        related_name="blogs",
+        verbose_name=_("Categories")
     )
     tags = models.ManyToManyField(
         Tag,
-        related_name="blogs"
+        related_name="blogs",
+        verbose_name=_("Tags")
     )
     authors = models.ManyToManyField(
         Author,
-        related_name="blogs"
+        related_name="blogs",
+        verbose_name=_("Authors")
     )
 
     status = models.CharField(
         max_length=20,
         choices=BlogStatus.choices,
-        default=BlogStatus.DRAFT
+        default=BlogStatus.DRAFT,
+        verbose_name=_("Status")
     )
-    is_active = models.BooleanField(default=True)
+    is_active = models.BooleanField(
+        default=True,
+        verbose_name=_("Is active")
+    )
 
     def __str__(self):
         return self.title
 
     class Meta:
         db_table = "blogs"
-        verbose_name = "blog"
-        verbose_name_plural = "blogs"
+        verbose_name = _("Blog")
+        verbose_name_plural = _("Blogs")

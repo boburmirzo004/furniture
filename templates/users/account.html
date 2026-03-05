@@ -1,6 +1,7 @@
 {% extends 'layout/base.html' %}
 {% load static %}
-{% block title %} Blog list {% endblock %}
+{% load i18n %}
+{% block title %}{% trans 'My Account' %}{% endblock %}
 {% block id %}id="users-account" {% endblock %}
 {% block class %} class="user-acount" {% endblock %}
 {% block content %}
@@ -14,12 +15,12 @@
                     <ol>
                         <li>
                             <a href="#">
-                                <span>Home</span>
+                                <span>{% trans 'Home' %}</span>
                             </a>
                         </li>
                         <li>
                             <a href="#">
-                                <span>My Account</span>
+                                <span>{% trans 'My Account' %}</span>
                             </a>
                         </li>
                     </ol>
@@ -30,50 +31,50 @@
         <div class="acount head-acount">
             <div class="container">
                 <div id="main">
-                    <h1 class="title-page">My Account</h1>
+                    <h1 class="title-page">{% trans 'My Account' %}</h1>
                     <div class="content" id="block-history">
                         <table class="std table">
                             <tbody>
-                            <tr>
-                                <th class="first_item">My Name :</th>
-                                <td>David James</td>
-                            </tr>
-                            <tr>
-                                <th class="first_item">Company :</th>
-                                <td>TivaTheme</td>
-                            </tr>
-                            <tr>
-                                <th class="first_item">Address :</th>
-                                <td>123 canberra Street, New York, USA</td>
-                            </tr>
-                            <tr>
-                                <th class="first_item">City :</th>
-                                <td>New York</td>
-                            </tr>
-                            <tr>
-                                <th class="first_item">Postal/Zip Code :</th>
-                                <td>10001</td>
-                            </tr>
-                            <tr>
-                                <th class="first_item">Phone :</th>
-                                <td>0123456789</td>
-                            </tr>
-                            <tr>
-                                <th class="first_item">Country:</th>
-                                <td>USA</td>
-                            </tr>
+                                <tr>
+                                    <th class="first_item">{% trans 'My Name :' %}</th>
+                                    <td>David James</td>
+                                </tr>
+                                <tr>
+                                    <th class="first_item">{% trans 'Company :' %}</th>
+                                    <td>TivaTheme</td>
+                                </tr>
+                                <tr>
+                                    <th class="first_item">{% trans 'Address :' %}</th>
+                                    <td>123 canberra Street, New York, USA</td>
+                                </tr>
+                                <tr>
+                                    <th class="first_item">{% trans 'City :' %}</th>
+                                    <td>New York</td>
+                                </tr>
+                                <tr>
+                                    <th class="first_item">{% trans 'Postal/Zip Code :' %}</th>
+                                    <td>10001</td>
+                                </tr>
+                                <tr>
+                                    <th class="first_item">{% trans 'Phone :' %}</th>
+                                    <td>0123456789</td>
+                                </tr>
+                                <tr>
+                                    <th class="first_item">{% trans 'Country:' %}</th>
+                                    <td>USA</td>
+                                </tr>
                             </tbody>
                         </table>
 
                     </div>
                     <button class="btn btn-primary" data-link-action="sign-in" type="submit">
-                        view Address
+                        {% trans 'view Address' %}
                     </button>
                     <div class="order">
-                        <h4>Order
-                            <span class="detail">History</span>
+                        <h4>{% trans 'Order' %}
+                            <span class="detail">{% trans 'History' %}</span>
                         </h4>
-                        <p>You haven't placed any orders yet.</p>
+                        <p>{% trans "You haven't placed any orders yet." %}</p>
                     </div>
                 </div>
 

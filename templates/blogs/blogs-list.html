@@ -1,175 +1,180 @@
 {% extends 'layout/base.html' %}
 {% load static %}
-{% block title %} Blog list {% endblock %}
+{% load i18n %}
+{% block title %}{% trans 'Blog List' %}{% endblock %}
 {% block id %}id="blog-list-sidebar-left" {% endblock %}
 {% block class %} class="blog" {% endblock %}
 {% block content %}
-    <div class="main-content">
-        <div id="wrapper-site">
-            <div id="content-wrapper">
-                <div id="main">
-                    <div class="page-home">
+<div class="main-content">
+    <div id="wrapper-site">
+        <div id="content-wrapper">
+            <div id="main">
+                <div class="page-home">
 
-                        <!-- breadcrumb -->
-                        <nav class="breadcrumb-bg">
-                            <div class="container no-index">
-                                <div class="breadcrumb">
-                                    <ol>
-                                        <li>
-                                            <a href="#">
-                                                <span>Home</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <span>Living Room</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <span>Sofa</span>
-                                            </a>
-                                        </li>
-                                    </ol>
-                                </div>
+                    <!-- breadcrumb -->
+                    <nav class="breadcrumb-bg">
+                        <div class="container no-index">
+                            <div class="breadcrumb">
+                                <ol>
+                                    <li>
+                                        <a href="#">
+                                            <span>{% trans 'Home' %}</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <span>{% trans 'Living Room' %}</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <span>{% trans 'Sofa' %}</span>
+                                        </a>
+                                    </li>
+                                </ol>
                             </div>
-                        </nav>
-                        <div class="container">
-                            <div class="content">
-                                <div class="row">
-                                    <div class="sidebar-3 sidebar-collection col-lg-3 col-md-3 col-sm-4">
+                        </div>
+                    </nav>
+                    <div class="container">
+                        <div class="content">
+                            <div class="row">
+                                <div class="sidebar-3 sidebar-collection col-lg-3 col-md-3 col-sm-4">
 
-                                        <!-- category -->
-                                        <div class="sidebar-block">
-                                            <div class="title-block">Categories</div>
-                                            <div class="block-content">
-                                               {% for category in categories %}
-                                                    <div class="cateTitle hasSubCategory open level1">
-                                                    <span class="arrow collapse-icons collapsed" data-toggle="collapse"
-                                                          data-target="#{{ category.id }}" aria-expanded="false"
-                                                          role="status">
-                                                        <i class="zmdi zmdi-minus"></i>
-                                                        <i class="zmdi zmdi-plus"></i>
-                                                    </span>
-                                                        <a class="cateItem" href="#">{{ category.title }}</a>
-                                                        <div class="subCategory collapse" id="{{ category.id }}"
-                                                             aria-expanded="true" role="status">
-                                                            {% for sub_cat in category.children.all %}
-                                                                <div class="cateTitle">
-                                                                    <a href="#" class="cateItem">{{ sub_cat.title }}</a>
-                                                                </div>
-                                                            {% endfor %}
-                                                        </div>
-                                                    </div>
-                                                {% endfor %}
-                                            </div>
-                                        </div>
-
-                                        <!-- recent posts -->
-                                        <div class="sidebar-block">
-                                            <div class="title-block">Recent Posts</div>
-                                            <div class="post-item-content">
-                                                {% for post in recent_posts %}
-                                                <div>
-                                                    <div class="late-item first-child">
-                                                        <a href="{% url 'blogs:detail' pk=post.id %}">
-                                                            <p class="content-title">{{post.title}}</p>
-                                                        </a>
-                                                        <span>
-                                                            <i class="zmdi zmdi-comments"></i>13 comment
-                                                        </span>
-                                                        <span>
-                                                            <i class="zmdi zmdi-calendar-note"></i>{{ post.created_at | date:"d,F,Y" }}
-                                                        </span>
-                                                        <p class="description">{{ post.short_description | truncatechars:30 }}
-                                                        </p>
-                                                        <p class="remove">
-                                                            <a href="{% url 'blogs:detail' pk=post.id %}">READ MORE</a>
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                                {% endfor %}
-                                            </div>
-                                        </div>
-
-                                        <!-- product tag -->
-                                        <div class="sidebar-block product-tags">
-                                            <div class="title-block">
-                                                Blog Tags
-                                            </div>
-                                            <div class="block-content">
-                                                <ul class="listSidebarBlog list-unstyled">
-                                                    {% for tag in tags %}
-                                                    <li>
-                                                        <a href="#" title="Show products matching tag Hot Trend">{{ tag.title }}</a>
-                                                    </li>
-                                                    {% endfor %}
-                                                </ul>
-                                            </div>
-                                        </div>
-
-                                        <!-- advertising -->
-                                        <div class="sidebar-block group-image-special">
-                                            <div class="effect">
-                                                <a href="#">
-                                                    <img class="img-fluid" src="{% static 'img/blog/advertising.jpg' %}" alt="banner-2" title="banner-2">
-                                                </a>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                    <div class="col-sm-8 col-lg-9 col-md-9 flex-xs-first main-blogs">
-                                        <h2>Recent Posts</h2>
-                                        {% for blog in blogs %}
-                                        <div class="list-content row">
-                                            <div class="hover-after col-md-5 col-xs-12">
-                                                <a href="{% url 'blogs:detail' pk=blog.id %}">
-                                                    <img src="{{ blog.image.url }}" alt="img">
-                                                </a>
-                                            </div>
-                                            <div class="late-item col-md-7 col-xs-12">
-                                                <p class="content-title">
-                                                    <a href="{% url 'blogs:detail' pk=blog.id %}">{{ blog.title }}</a>
-                                                </p>
-                                                <p class="post-info">
-                                                    <span>{{ blog.created_at | timesince }}3 minitunes ago</span>
-                                                    <span>113 Comments</span>
-                                                    {% for author in blog.authors.all %}
-                                                    <span>{{ author.full_name }}, </span>
-                                                    {% endfor %}
-                                                </p>
-                                                <p class="description">{{ blog.short_description }}
-                                                </p>
-                                                <span class="view-more">
-                                                    <a href="{% url 'blogs:detail' pk=blog.id %}">view more</a>
+                                    <!-- category -->
+                                    <div class="sidebar-block">
+                                        <div class="title-block">{% trans 'Categories' %}</div>
+                                        <div class="block-content">
+                                            {% for category in categories %}
+                                            <div class="cateTitle hasSubCategory open level1">
+                                                <span class="arrow collapse-icons collapsed" data-toggle="collapse"
+                                                    data-target="#{{ category.id }}" aria-expanded="false"
+                                                    role="status">
+                                                    <i class="zmdi zmdi-minus"></i>
+                                                    <i class="zmdi zmdi-plus"></i>
                                                 </span>
+                                                <a class="cateItem" href="#">{{ category.title }}</a>
+                                                <div class="subCategory collapse" id="{{ category.id }}"
+                                                    aria-expanded="true" role="status">
+                                                    {% for sub_cat in category.children.all %}
+                                                    <div class="cateTitle">
+                                                        <a href="#" class="cateItem">{{ sub_cat.title }}</a>
+                                                    </div>
+                                                    {% endfor %}
+                                                </div>
                                             </div>
+                                            {% endfor %}
                                         </div>
-                                        {% endfor %}
-                                        <div class="page-list col">
-                                            <ul class="justify-content-center d-flex">
+                                    </div>
+
+                                    <!-- recent posts -->
+                                    <div class="sidebar-block">
+                                        <div class="title-block">{% trans 'Recent Posts' %}</div>
+                                        <div class="post-item-content">
+                                            {% for post in recent_posts %}
+                                            <div>
+                                                <div class="late-item first-child">
+                                                    <a href="{% url 'blogs:detail' pk=post.id %}">
+                                                        <p class="content-title">{{post.title}}</p>
+                                                    </a>
+                                                    <span>
+                                                        <i class="zmdi zmdi-comments"></i>13 comment
+                                                    </span>
+                                                    <span>
+                                                        <i class="zmdi zmdi-calendar-note"></i>{{ post.created_at |
+                                                        date:"d,F,Y" }}
+                                                    </span>
+                                                    <p class="description">{{ post.short_description | truncatechars:30
+                                                        }}
+                                                    </p>
+                                                    <p class="remove">
+                                                        <a href="{% url 'blogs:detail' pk=post.id %}">READ MORE</a>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+
+                                    <!-- product tag -->
+                                    <div class="sidebar-block product-tags">
+                                        <div class="title-block">
+                                            Blog Tags
+                                        </div>
+                                        <div class="block-content">
+                                            <ul class="listSidebarBlog list-unstyled">
+                                                {% for tag in tags %}
                                                 <li>
-                                                    <a rel="prev" href="#" class="previous disabled js-search-link">
-                                                        Previous
-                                                    </a>
+                                                    <a href="#" title="Show products matching tag Hot Trend">{{
+                                                        tag.title }}</a>
                                                 </li>
-                                                <li class="current active">
-                                                    <a rel="nofollow" href="#" class="disabled js-search-link">
-                                                        1
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a rel="nofollow" href="#" class="disabled js-search-link">
-                                                        2
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a rel="next" href="#" class="next disabled js-search-link">
-                                                        Next
-                                                    </a>
-                                                </li>
+                                                {% endfor %}
                                             </ul>
                                         </div>
+                                    </div>
+
+                                    <!-- advertising -->
+                                    <div class="sidebar-block group-image-special">
+                                        <div class="effect">
+                                            <a href="#">
+                                                <img class="img-fluid" src="{% static 'img/blog/advertising.jpg' %}"
+                                                    alt="banner-2" title="banner-2">
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="col-sm-8 col-lg-9 col-md-9 flex-xs-first main-blogs">
+                                    <h2>{% trans 'Recent Posts' %}</h2>
+                                    {% for blog in blogs %}
+                                    <div class="list-content row">
+                                        <div class="hover-after col-md-5 col-xs-12">
+                                            <a href="{% url 'blogs:detail' pk=blog.id %}">
+                                                <img src="{{ blog.image.url }}" alt="img">
+                                            </a>
+                                        </div>
+                                        <div class="late-item col-md-7 col-xs-12">
+                                            <p class="content-title">
+                                                <a href="{% url 'blogs:detail' pk=blog.id %}">{{ blog.title }}</a>
+                                            </p>
+                                            <p class="post-info">
+                                                <span>{{ blog.created_at | timesince }}3 minitunes ago</span>
+                                                <span>113 Comments</span>
+                                                {% for author in blog.authors.all %}
+                                                <span>{{ author.full_name }}, </span>
+                                                {% endfor %}
+                                            </p>
+                                            <p class="description">{{ blog.short_description }}
+                                            </p>
+                                            <span class="view-more">
+                                                <a href="{% url 'blogs:detail' pk=blog.id %}">{% trans 'view more'
+                                                    %}</a>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    {% endfor %}
+                                    <div class="page-list col">
+                                        <ul class="justify-content-center d-flex">
+                                            <li>
+                                                <a rel="prev" href="#" class="previous disabled js-search-link">
+                                                    {% trans 'Previous' %}
+                                                </a>
+                                            </li>
+                                            <li class="current active">
+                                                <a rel="nofollow" href="#" class="disabled js-search-link">
+                                                    1
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a rel="nofollow" href="#" class="disabled js-search-link">
+                                                    2
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a rel="next" href="#" class="next disabled js-search-link">
+                                                    {% trans 'Next' %}
+                                                </a>
+                                            </li>
+                                        </ul>
                                     </div>
                                 </div>
                             </div>
@@ -179,4 +184,5 @@
             </div>
         </div>
     </div>
+</div>
 {% endblock %}

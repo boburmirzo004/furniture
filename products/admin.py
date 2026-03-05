@@ -1,9 +1,11 @@
 from django.contrib import admin
+from django.utils.translation import gettext_lazy as _
 
 from products.models import (
     ProductCategory, ProductTag, ProductColor,
     Manufacture, Product, ProductImage, ProductColorQuantity
 )
+from shared.admin import MyTranslationOption
 
 
 class ProductImageInline(admin.TabularInline):
@@ -22,7 +24,7 @@ class ProductColorQuantityInline(admin.TabularInline):
 
 
 @admin.register(ProductCategory)
-class ProductCategoryAdmin(admin.ModelAdmin):
+class ProductCategoryAdmin(MyTranslationOption):
     list_display = ['id', 'name', 'parent', 'is_active', 'created_at']
     search_fields = ['name']
     list_filter = ['is_active', 'parent', 'created_at']
@@ -30,21 +32,21 @@ class ProductCategoryAdmin(admin.ModelAdmin):
 
 
 @admin.register(ProductTag)
-class ProductTagAdmin(admin.ModelAdmin):
+class ProductTagAdmin(MyTranslationOption):
     list_display = ['id', 'name', 'created_at']
     search_fields = ['name']
     list_filter = ['created_at']
 
 
 @admin.register(ProductColor)
-class ProductColorAdmin(admin.ModelAdmin):
+class ProductColorAdmin(MyTranslationOption):
     list_display = ['id', 'name', 'hex_code', 'created_at']
     search_fields = ['name', 'hex_code']
     list_filter = ['created_at']
 
 
 @admin.register(Manufacture)
-class ManufactureAdmin(admin.ModelAdmin):
+class ManufactureAdmin(MyTranslationOption):
     list_display = ['id', 'name', 'country', 'is_active', 'created_at']
     search_fields = ['name', 'country']
     list_filter = ['is_active', 'country', 'created_at']
@@ -52,7 +54,7 @@ class ManufactureAdmin(admin.ModelAdmin):
 
 
 @admin.register(Product)
-class ProductAdmin(admin.ModelAdmin):
+class ProductAdmin(MyTranslationOption):
     list_display = [
         'id', 'name', 'sku', 'price_uzs', 'price_usd', 'price_rub',
         'total_stock', 'status', 'manufacture', 'is_featured', 'is_active', 'created_at'
@@ -66,29 +68,29 @@ class ProductAdmin(admin.ModelAdmin):
     filter_horizontal = ['categories', 'tags']
     inlines = [ProductColorQuantityInline, ProductImageInline]
     fieldsets = (
-        ("Basic Info", {
+        (_("Basic Info"), {
             'fields': ('name', 'sku', 'short_description', 'description', 'image')
         }),
-        ("Pricing (UZS)", {
+        (_("Pricing (UZS)"), {
             'fields': ('price_uzs', 'discount_price_uzs')
         }),
-        ("Pricing (USD)", {
+        (_("Pricing (USD)"), {
             'fields': ('price_usd', 'discount_price_usd')
         }),
-        ("Pricing (RUB)", {
+        (_("Pricing (RUB)"), {
             'fields': ('price_rub', 'discount_price_rub')
         }),
-        ("Status", {
+        (_("Status"), {
             'fields': ('status',)
         }),
-        ("Relations", {
+        (_("Relations"), {
             'fields': ('manufacture', 'categories', 'tags')
         }),
-        ("Flags", {
+        (_("Flags"), {
             'fields': ('is_featured', 'is_active')
         }),
     )
 
-    @admin.display(description="Total Stock")
+    @admin.display(description=_("Total Stock"))
     def total_stock(self, obj):
         return obj.total_stock

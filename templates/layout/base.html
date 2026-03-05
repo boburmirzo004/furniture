@@ -1,4 +1,5 @@
 {% load static %}
+{% load i18n %}
 
 <!DOCTYPE html>
 <!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
@@ -9,6 +10,7 @@
 
 
 <!-- product-grid-sidebar-left10:54-->
+
 <head>
     <!-- Basic Page Needs -->
     <meta charset="utf-8">
@@ -42,22 +44,22 @@
 </head>
 
 <body {% block id %} {% endblock %} {% block class %} {% endblock %}>
-{% include 'layout/header.html' %}
+    {% include 'layout/header.html' %}
 
     <!-- main content -->
-{% block content %}
-{% endblock %}
+    {% block content %}
+    {% endblock %}
 
     <!-- footer -->
-{% include 'layout/footer.html' %}
+    {% include 'layout/footer.html' %}
 
 
 
     <!-- menu mobie left -->
-{% include 'layout/mobile-left.html' %}
+    {% include 'layout/mobile-left.html' %}
 
     <!-- menu mobie right -->
-{% include 'layout/mobile-right.html' %}
+    {% include 'layout/mobile-right.html' %}
 
     <!-- Page Loader -->
     <div id="page-preloader">
@@ -94,4 +96,5 @@
 
 
 <!-- product-grid-sidebar-left10:55-->
+
 </html>

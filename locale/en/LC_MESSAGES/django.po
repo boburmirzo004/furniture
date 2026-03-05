@@ -1,0 +1,904 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-03-05 19:16+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: blogs/apps.py:7
+msgid "blogs"
+msgstr ""
+
+#: blogs/models.py:9 shared/forms.py:14 shared/models.py:22 shared/models.py:45
+#: users/forms.py:18 users/models.py:43
+msgid "Full name"
+msgstr ""
+
+#: blogs/models.py:13 blogs/models.py:100 products/models.py:292
+msgid "Image"
+msgstr ""
+
+#: blogs/models.py:17 shared/models.py:38
+msgid "About"
+msgstr ""
+
+#: blogs/models.py:21
+msgid "Professions"
+msgstr ""
+
+#: blogs/models.py:25 blogs/models.py:44 blogs/models.py:71 blogs/models.py:130
+#: products/models.py:27 products/models.py:103 products/models.py:231
+#: users/models.py:48
+msgid "Is active"
+msgstr ""
+
+#: blogs/models.py:33
+msgid "Author"
+msgstr ""
+
+#: blogs/models.py:34 blogs/models.py:119
+msgid "Authors"
+msgstr ""
+
+#: blogs/models.py:40 blogs/models.py:67 blogs/models.py:92
+msgid "Title"
+msgstr ""
+
+#: blogs/models.py:52 products/models.py:23
+msgid "Parent category"
+msgstr ""
+
+#: blogs/models.py:60
+msgid "Category"
+msgstr ""
+
+#: blogs/models.py:61 blogs/models.py:109 products/models.py:209
+#: templates/blogs/blog-detail.html:35 templates/blogs/blogs-list.html:45
+#: templates/products/product-detail.html:45
+msgid "Categories"
+msgstr ""
+
+#: blogs/models.py:79
+msgid "Tag"
+msgstr ""
+
+#: blogs/models.py:80 blogs/models.py:114 products/models.py:215
+msgid "Tags"
+msgstr ""
+
+#: blogs/models.py:84
+msgid "Published"
+msgstr ""
+
+#: blogs/models.py:85
+msgid "Draft"
+msgstr ""
+
+#: blogs/models.py:86
+msgid "Deleted"
+msgstr ""
+
+#: blogs/models.py:96 products/models.py:139
+msgid "Short description"
+msgstr ""
+
+#: blogs/models.py:103
+msgid "Long description"
+msgstr ""
+
+#: blogs/models.py:126 products/models.py:197
+msgid "Status"
+msgstr ""
+
+#: blogs/models.py:138
+msgid "Blog"
+msgstr ""
+
+#: blogs/models.py:139
+msgid "Blogs"
+msgstr ""
+
+#: products/apps.py:7
+msgid "products"
+msgstr ""
+
+#: products/models.py:10
+msgid "Icon"
+msgstr ""
+
+#: products/models.py:11
+msgid "CSS icon class, e.g. 'fa fa-couch'"
+msgstr ""
+
+#: products/models.py:15 products/models.py:42 products/models.py:57
+#: products/models.py:78 products/models.py:125
+#: templates/products/wishlist.html:59
+msgid "Name"
+msgstr ""
+
+#: products/models.py:35
+msgid "Product category"
+msgstr ""
+
+#: products/models.py:36
+msgid "Product categories"
+msgstr ""
+
+#: products/models.py:50
+msgid "Product tag"
+msgstr ""
+
+#: products/models.py:51
+msgid "Product tags"
+msgstr ""
+
+#: products/models.py:58
+msgid "e.g. Walnut Brown, Oak Natural"
+msgstr ""
+
+#: products/models.py:62
+msgid "HEX code"
+msgstr ""
+
+#: products/models.py:63
+msgid "e.g. #8B4513"
+msgstr ""
+
+#: products/models.py:71
+msgid "Product color"
+msgstr ""
+
+#: products/models.py:72
+msgid "Product colors"
+msgstr ""
+
+#: products/models.py:84
+msgid "Logo"
+msgstr ""
+
+#: products/models.py:90
+msgid "Country"
+msgstr ""
+
+#: products/models.py:91
+msgid "Country of origin"
+msgstr ""
+
+#: products/models.py:95 products/models.py:134
+msgid "Description"
+msgstr ""
+
+#: products/models.py:99
+msgid "Website"
+msgstr ""
+
+#: products/models.py:111 products/models.py:204
+msgid "Manufacture"
+msgstr ""
+
+#: products/models.py:112
+msgid "Manufactures"
+msgstr ""
+
+#: products/models.py:116
+msgid "Available"
+msgstr ""
+
+#: products/models.py:117
+msgid "Out of stock"
+msgstr ""
+
+#: products/models.py:118
+msgid "Discontinued"
+msgstr ""
+
+#: products/models.py:119
+msgid "Coming soon"
+msgstr ""
+
+#: products/models.py:130
+msgid "SKU"
+msgstr ""
+
+#: products/models.py:131
+msgid "Stock Keeping Unit — unique product code"
+msgstr ""
+
+#: products/models.py:143
+msgid "Main image"
+msgstr ""
+
+#: products/models.py:150
+msgid "Price (UZS)"
+msgstr ""
+
+#: products/models.py:151
+msgid "Price in Uzbek sum"
+msgstr ""
+
+#: products/models.py:157
+msgid "Price (USD)"
+msgstr ""
+
+#: products/models.py:158
+msgid "Price in US dollar"
+msgstr ""
+
+#: products/models.py:164
+msgid "Price (RUB)"
+msgstr ""
+
+#: products/models.py:165
+msgid "Price in Russian ruble"
+msgstr ""
+
+#: products/models.py:174
+msgid "Discount price (UZS)"
+msgstr ""
+
+#: products/models.py:182
+msgid "Discount price (USD)"
+msgstr ""
+
+#: products/models.py:190
+msgid "Discount price (RUB)"
+msgstr ""
+
+#: products/models.py:222
+msgid "Colors"
+msgstr ""
+
+#: products/models.py:227
+msgid "Is featured"
+msgstr ""
+
+#: products/models.py:249 products/models.py:259 products/models.py:288
+msgid "Product"
+msgstr ""
+
+#: products/models.py:250
+msgid "Products"
+msgstr ""
+
+#: products/models.py:265
+msgid "Color"
+msgstr ""
+
+#: products/models.py:269
+msgid "Quantity"
+msgstr ""
+
+#: products/models.py:270
+msgid "Stock quantity for this color"
+msgstr ""
+
+#: products/models.py:278
+msgid "Product color quantity"
+msgstr ""
+
+#: products/models.py:279
+msgid "Product color quantities"
+msgstr ""
+
+#: products/models.py:296
+msgid "Is primary"
+msgstr ""
+
+#: products/models.py:297
+msgid "Mark as primary gallery image"
+msgstr ""
+
+#: products/models.py:302
+msgid "Alt text"
+msgstr ""
+
+#: products/models.py:306 templates/users/account.html:74
+msgid "Order"
+msgstr ""
+
+#: products/models.py:314
+msgid "Product image"
+msgstr ""
+
+#: products/models.py:315
+msgid "Product images"
+msgstr ""
+
+#: shared/apps.py:7
+msgid "shared"
+msgstr ""
+
+#: shared/forms.py:15 shared/models.py:48 users/forms.py:17 users/models.py:39
+msgid "Email"
+msgstr ""
+
+#: shared/forms.py:16 shared/models.py:55
+msgid "Message"
+msgstr ""
+
+#: shared/forms.py:20
+msgid "Write your message here"
+msgstr ""
+
+#: shared/forms.py:25
+msgid "Full name is required"
+msgstr ""
+
+#: shared/forms.py:28 users/forms.py:28 users/models.py:11
+msgid "Email is required"
+msgstr ""
+
+#: shared/forms.py:29 users/forms.py:22 users/forms.py:29
+msgid "Enter a valid email address"
+msgstr ""
+
+#: shared/forms.py:38
+msgid "The word 'hello' is not allowed inside the message."
+msgstr ""
+
+#: shared/models.py:8
+msgid "Created at"
+msgstr ""
+
+#: shared/models.py:12
+msgid "Updated at"
+msgstr ""
+
+#: shared/models.py:26
+msgid "Profession"
+msgstr ""
+
+#: shared/models.py:30
+msgid "Information"
+msgstr ""
+
+#: shared/models.py:39 templates/shared/about-us.html:24
+#: templates/users/register.html:23
+msgid "About us"
+msgstr ""
+
+#: shared/models.py:52
+msgid "Subject"
+msgstr ""
+
+#: shared/models.py:60
+msgid "Is read"
+msgstr ""
+
+#: shared/models.py:68 templates/shared/contact.html:24
+msgid "Contact"
+msgstr ""
+
+#: shared/models.py:69
+msgid "Contacts"
+msgstr ""
+
+#: shared/views.py:20
+msgid "Successfully sent to the admin, thanks for your attention."
+msgstr ""
+
+#: templates/blogs/blog-detail.html:4
+msgid "Blog Detail"
+msgstr ""
+
+#: templates/blogs/blog-detail.html:21 templates/blogs/blogs-list.html:21
+#: templates/products/cart.html:18 templates/products/checkout.html:17
+#: templates/products/product-detail.html:21
+#: templates/products/wishlist.html:18 templates/shared/about-us.html:19
+#: templates/shared/contact.html:19 templates/shared/home.html:4
+#: templates/users/account.html:18 templates/users/login.html:18
+#: templates/users/register.html:18 templates/users/reset-password.html:18
+msgid "Home"
+msgstr ""
+
+#: templates/blogs/blog-detail.html:188 templates/blogs/blogs-list.html:71
+#: templates/blogs/blogs-list.html:127
+msgid "Recent Posts"
+msgstr ""
+
+#: templates/blogs/blog-detail.html:205 templates/blogs/blog-detail.html:224
+msgid "READ MORE"
+msgstr ""
+
+#: templates/blogs/blog-detail.html:234
+msgid "Blog Tags"
+msgstr ""
+
+#: templates/blogs/blog-detail.html:317
+#: templates/products/product-detail.html:576
+msgid "Share"
+msgstr ""
+
+#: templates/blogs/blog-detail.html:321
+#: templates/products/product-detail.html:580
+msgid "SEN TO A FRIEND"
+msgstr ""
+
+#: templates/blogs/blog-detail.html:325
+#: templates/products/product-detail.html:584
+msgid "Print"
+msgstr ""
+
+#: templates/blogs/blog-detail.html:350
+msgid "Related News"
+msgstr ""
+
+#: templates/blogs/blog-detail.html:409
+msgid "Comments"
+msgstr ""
+
+#: templates/blogs/blog-detail.html:474
+msgid "Submit comment"
+msgstr ""
+
+#: templates/blogs/blog-detail.html:502
+msgid "Send Message"
+msgstr ""
+
+#: templates/blogs/blogs-list.html:4
+msgid "Blog List"
+msgstr ""
+
+#: templates/blogs/blogs-list.html:26 templates/products/product-detail.html:26
+msgid "Living Room"
+msgstr ""
+
+#: templates/blogs/blogs-list.html:31 templates/products/product-detail.html:31
+msgid "Sofa"
+msgstr ""
+
+#: templates/blogs/blogs-list.html:159
+msgid "Previous"
+msgstr ""
+
+#: templates/blogs/blogs-list.html:174
+msgid "Next"
+msgstr ""
+
+#: templates/layout/footer.html:24 templates/shared/about-us.html:4
+#: templates/shared/about-us.html:36
+msgid "About Us"
+msgstr ""
+
+#: templates/layout/footer.html:27
+msgid "Reasons to shop"
+msgstr ""
+
+#: templates/layout/footer.html:30
+msgid "What our customers say"
+msgstr ""
+
+#: templates/layout/footer.html:33
+msgid "Meet the teaml"
+msgstr ""
+
+#: templates/layout/footer.html:36
+msgid "Contact our buyers"
+msgstr ""
+
+#: templates/layout/footer.html:52 templates/shared/contact.html:4
+#: templates/shared/contact.html:34
+msgid "Contact Us"
+msgstr ""
+
+#: templates/layout/footer.html:58 templates/users/account.html:47
+msgid "Address :"
+msgstr ""
+
+#: templates/layout/footer.html:69
+msgid "Email :"
+msgstr ""
+
+#: templates/layout/footer.html:78
+msgid "Hotline :"
+msgstr ""
+
+#: templates/layout/footer.html:87
+msgid "Opening Hours :"
+msgstr ""
+
+#: templates/layout/footer.html:100
+msgid "Newsletter"
+msgstr ""
+
+#: templates/layout/footer.html:113
+msgid "subscribe"
+msgstr ""
+
+#: templates/layout/footer.html:126
+msgid "Follow us on"
+msgstr ""
+
+#: templates/layout/footer.html:161
+msgid "Payment accept"
+msgstr ""
+
+#: templates/layout/header.html:114
+msgid "HOME"
+msgstr ""
+
+#: templates/layout/header.html:117
+msgid "BLOGS"
+msgstr ""
+
+#: templates/layout/header.html:120
+msgid "PRODUCTS"
+msgstr ""
+
+#: templates/layout/header.html:123
+msgid "ABOUT"
+msgstr ""
+
+#: templates/layout/header.html:126
+msgid "CONTACT"
+msgstr ""
+
+#: templates/layout/mobile-right.html:6
+msgid "Menu"
+msgstr ""
+
+#: templates/layout/mobile-right.html:7
+msgid "Close"
+msgstr ""
+
+#: templates/products/cart.html:4 templates/products/cart.html:23
+#: templates/products/cart.html:36
+msgid "Shopping Cart"
+msgstr ""
+
+#: templates/products/cart.html:61
+msgid "Size:"
+msgstr ""
+
+#: templates/products/cart.html:65
+msgid "Color:"
+msgstr ""
+
+#: templates/products/cart.html:73
+msgid "Qty:"
+msgstr ""
+
+#: templates/products/cart.html:93 templates/products/cart.html:283
+#: templates/products/checkout.html:209
+msgid "Total:"
+msgstr ""
+
+#: templates/products/cart.html:258 templates/products/checkout.html:127
+#: templates/products/checkout.html:162
+msgid "Continue"
+msgstr ""
+
+#: templates/products/cart.html:265 templates/products/checkout.html:190
+msgid "There are 3 item in your cart"
+msgstr ""
+
+#: templates/products/cart.html:269 templates/products/checkout.html:195
+msgid "Total products:"
+msgstr ""
+
+#: templates/products/cart.html:275 templates/products/checkout.html:201
+msgid "Total Shipping:"
+msgstr ""
+
+#: templates/products/cart.html:277 templates/products/checkout.html:203
+msgid "Free"
+msgstr ""
+
+#: templates/products/checkout.html:4 templates/products/checkout.html:22
+msgid "Checkout"
+msgstr ""
+
+#: templates/products/checkout.html:40
+msgid "PERSONAL INFORMATION"
+msgstr ""
+
+#: templates/products/checkout.html:48
+msgid "ORDER AS A GUEST"
+msgstr ""
+
+#: templates/products/checkout.html:53
+msgid "SIGN IN"
+msgstr ""
+
+#: templates/products/checkout.html:109
+msgid "Sign up for our newsletter"
+msgstr ""
+
+#: templates/products/checkout.html:152 templates/users/login.html:57
+msgid "Forgot your password?"
+msgstr ""
+
+#: templates/products/checkout.html:172
+msgid "Addresses"
+msgstr ""
+
+#: templates/products/checkout.html:177
+msgid "Shipping Method"
+msgstr ""
+
+#: templates/products/checkout.html:182
+msgid "Payment"
+msgstr ""
+
+#: templates/products/product-detail.html:4
+msgid "Product Detail"
+msgstr ""
+
+#: templates/products/product-detail.html:199
+msgid "Best seller"
+msgstr ""
+
+#: templates/products/product-detail.html:558
+msgid "Add to cart"
+msgstr ""
+
+#: templates/products/product-detail.html:590
+msgid "REVIEW :"
+msgstr ""
+
+#: templates/products/product-detail.html:605
+msgid "READ REVIEWS (3)"
+msgstr ""
+
+#: templates/products/product-detail.html:611
+msgid "WRITE A REVIEW"
+msgstr ""
+
+#: templates/products/product-detail.html:649
+msgid "Product Tags"
+msgstr ""
+
+#: templates/products/product-detail.html:732
+msgid "Write a review"
+msgstr ""
+
+#: templates/products/product-detail.html:794
+msgid "Submit Review"
+msgstr ""
+
+#: templates/products/wishlist.html:4 templates/products/wishlist.html:41
+msgid "My Wishlists"
+msgstr ""
+
+#: templates/products/wishlist.html:23
+msgid "Wishlists"
+msgstr ""
+
+#: templates/products/wishlist.html:44
+msgid "New wishlist"
+msgstr ""
+
+#: templates/products/wishlist.html:49
+msgid "Show"
+msgstr ""
+
+#: templates/products/wishlist.html:49
+msgid "Hide"
+msgstr ""
+
+#: templates/products/wishlist.html:50
+msgid "Save"
+msgstr ""
+
+#: templates/products/wishlist.html:60
+msgid "Qty"
+msgstr ""
+
+#: templates/products/wishlist.html:61
+msgid "Viewed"
+msgstr ""
+
+#: templates/products/wishlist.html:62
+msgid "Created"
+msgstr ""
+
+#: templates/products/wishlist.html:63
+msgid "Direct Link"
+msgstr ""
+
+#: templates/products/wishlist.html:64
+msgid "Default"
+msgstr ""
+
+#: templates/products/wishlist.html:65
+msgid "Delete"
+msgstr ""
+
+#: templates/products/wishlist.html:101
+msgid "Homepage"
+msgstr ""
+
+#: templates/shared/about-us.html:45
+msgid "WHO WE ARE"
+msgstr ""
+
+#: templates/shared/about-us.html:63
+msgid "WHAT WE DO"
+msgstr ""
+
+#: templates/shared/about-us.html:87
+msgid "MEET OUR TEAM"
+msgstr ""
+
+#: templates/shared/contact.html:46
+msgid "Email:"
+msgstr ""
+
+#: templates/shared/contact.html:63
+msgid "Address:"
+msgstr ""
+
+#: templates/shared/contact.html:79
+msgid "Hotline:"
+msgstr ""
+
+#: templates/shared/contact.html:144
+msgid "Send message"
+msgstr ""
+
+#: templates/users/account.html:4 templates/users/account.html:23
+#: templates/users/account.html:34
+msgid "My Account"
+msgstr ""
+
+#: templates/users/account.html:39
+msgid "My Name :"
+msgstr ""
+
+#: templates/users/account.html:43
+msgid "Company :"
+msgstr ""
+
+#: templates/users/account.html:51
+msgid "City :"
+msgstr ""
+
+#: templates/users/account.html:55
+msgid "Postal/Zip Code :"
+msgstr ""
+
+#: templates/users/account.html:59
+msgid "Phone :"
+msgstr ""
+
+#: templates/users/account.html:63
+msgid "Country:"
+msgstr ""
+
+#: templates/users/account.html:71
+msgid "view Address"
+msgstr ""
+
+#: templates/users/account.html:75
+msgid "History"
+msgstr ""
+
+#: templates/users/account.html:77
+msgid "You haven't placed any orders yet."
+msgstr ""
+
+#: templates/users/login.html:4 templates/users/login.html:38
+msgid "Log In"
+msgstr ""
+
+#: templates/users/login.html:23
+msgid "Login"
+msgstr ""
+
+#: templates/users/login.html:66
+msgid "Sign in"
+msgstr ""
+
+#: templates/users/register.html:4 templates/users/register.html:40
+#: templates/users/register.html:85
+msgid "Create Account"
+msgstr ""
+
+#: templates/users/reset-password.html:4 templates/users/reset-password.html:23
+msgid "Reset Password"
+msgstr ""
+
+#: templates/users/reset-password.html:40
+msgid "Forgot password"
+msgstr ""
+
+#: templates/users/reset-password.html:50
+msgid "Send reset link"
+msgstr ""
+
+#: templates/users/reset-password.html:56
+msgid "Back to login"
+msgstr ""
+
+#: users/admin.py:25
+msgid "Personal information"
+msgstr ""
+
+#: users/admin.py:28
+msgid "Permissions"
+msgstr ""
+
+#: users/admin.py:31
+msgid "Important dates"
+msgstr ""
+
+#: users/apps.py:7
+msgid "users"
+msgstr ""
+
+#: users/forms.py:19 users/models.py:28
+msgid "Username"
+msgstr ""
+
+#: users/forms.py:23
+msgid "Enter your full name"
+msgstr ""
+
+#: users/forms.py:24
+msgid "Choose a unique username"
+msgstr ""
+
+#: users/forms.py:32
+msgid "Username is required"
+msgstr ""
+
+#: users/forms.py:33
+msgid "This username is already taken"
+msgstr ""
+
+#: users/forms.py:41
+msgid "Username or Email"
+msgstr ""
+
+#: users/forms.py:45
+msgid "Password"
+msgstr ""
+
+#: users/forms.py:57 users/forms.py:64
+msgid "User not found, please check your credentials"
+msgstr ""
+
+#: users/models.py:35
+msgid "Phone number"
+msgstr ""
+
+#: users/models.py:52
+msgid "Is staff"
+msgstr ""
+
+#: users/models.py:65
+msgid "User"
+msgstr ""
+
+#: users/models.py:66
+msgid "Users"
+msgstr ""
+
+#: users/views.py:38
+msgid "Verify your email"
+msgstr ""
+
+#: users/views.py:39
+msgid "Click the link to verify your account: "
+msgstr ""
+
+#: users/views.py:47
+msgid "We sent a confirmation link to your email. Please verify it."
+msgstr ""
+
+#: users/views.py:76
+msgid "Something went wrong. Please try again later."
+msgstr ""

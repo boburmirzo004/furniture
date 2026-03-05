@@ -1,5 +1,4 @@
 import threading
-
 from django.contrib import messages
 from django.contrib.auth import get_user_model, login
 from django.core.mail import send_mail
@@ -7,6 +6,7 @@ from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.utils.encoding import force_str, force_bytes
 from django.utils.http import urlsafe_base64_decode, urlsafe_base64_encode
+from django.utils.translation import gettext as _
 
 from users.forms import CustomUserCreationForms, CustomAuthenticationForm
 from users.utils import email_verification_token
@@ -35,21 +35,23 @@ def register_page_view(request):
 
             # Send email
             thread = threading.Thread(target=send_mail, kwargs={
-                'subject': "Verify your email",
-                'message': f"Click verify to account: {link}",
+                'subject': _("Verify your email"),
+                'message': _("Click the link to verify your account: ") + link,
                 'from_email': "noreply@yourapp.com",
                 'recipient_list': [user.email],
             })
             thread.start()
 
-            text = 'We sent a confirmation link to email, Please verify it '
-            messages.success(request, text)
+            messages.success(
+                request,
+                _('We sent a confirmation link to your email. Please verify it.')
+            )
             return redirect('shared:home')
 
         else:
             error_messages = ', '.join([f"{field}: {', '.join(errors)}"
                                         for field, errors in form.errors.items()])
-            messages.error(request, error_messages)
+            messages.error(request, _(error_messages))
             return render(request, 'users/register.html')
 
     else:
@@ -71,13 +73,13 @@ def verify_email_view(request, uidb64, token):
         return redirect('users:register')
 
     else:
-        messages.error(request, 'Something went wrong, Please try again later')
+        messages.error(request, _('Something went wrong. Please try again later.'))
         return render(request, 'users/login.html')
 
 
 def login_page_view(request):
     if request.method == 'POST':
-        form = CustomAuthenticationForm( data=request.POST)
+        form = CustomAuthenticationForm(data=request.POST)
         if form.is_valid():
             user = form.cleaned_data['user']
             login(request, user)
@@ -89,10 +91,10 @@ def login_page_view(request):
                     errors.append(f"{field}: {error}")
 
             error_text = " | ".join(errors)
-            messages.error(request, error_text)
-            return render(request, 'users/login.html', )
+            messages.error(request, _(error_text))
+            return render(request, 'users/login.html')
     else:
-        return render(request, 'users/login.html', )
+        return render(request, 'users/login.html')
 
 
 def reset_password_page_view(request):

@@ -1,6 +1,7 @@
 {% extends 'layout/base.html' %}
 {% load static %}
-{% block title %} Blog list {% endblock %}
+{% load i18n %}
+{% block title %}{% trans 'Log In' %}{% endblock %}
 {% block id %}id="users-login" {% endblock %}
 {% block class %} class="user-login blog" {% endblock %}
 {% block content %}
@@ -14,12 +15,12 @@
                     <ol>
                         <li>
                             <a href="#">
-                                <span>Home</span>
+                                <span>{% trans 'Home' %}</span>
                             </a>
                         </li>
                         <li>
                             <a href="#">
-                                <span>Login</span>
+                                <span>{% trans 'Login' %}</span>
                             </a>
                         </li>
                     </ol>
@@ -34,7 +35,7 @@
         <div id="content-wrapper" class="full-width">
             <div id="main">
                 <div class="container">
-                    <h1 class="text-center title-page">Log In</h1>
+                    <h1 class="text-center title-page">{% trans 'Log In' %}</h1>
                     <div class="login-form">
                         <form id="customer-form" action="{% url 'users:login' %}" method="post">
                             {% csrf_token %}
@@ -42,18 +43,18 @@
                                 <input type="hidden" name="back" value="my-account">
                                 <div class="form-group no-gutters">
                                     <input class="form-control" name="identifier" type="text"
-                                           placeholder=" Email or Username ">
+                                        placeholder=" Email or Username ">
                                 </div>
                                 <div class="form-group no-gutters">
                                     <div class="input-group js-parent-focus">
                                         <input class="form-control js-child-focus js-visible-password" name="password"
-                                               type="password" value="" placeholder="Password">
+                                            type="password" value="" placeholder="Password">
                                     </div>
                                 </div>
                                 <div class="no-gutters text-center">
                                     <div class="forgot-password">
                                         <a href="{% url 'users:reset-password' %}" rel="nofollow">
-                                            Forgot your password?
+                                            {% trans 'Forgot your password?' %}
                                         </a>
                                     </div>
                                 </div>
@@ -62,7 +63,7 @@
                                 <div class="text-center no-gutters">
                                     <input type="hidden" name="submitLogin" value="1">
                                     <button class="btn btn-primary" data-link-action="sign-in" type="submit">
-                                        Sign in
+                                        {% trans 'Sign in' %}
                                     </button>
                                 </div>
                             </div>

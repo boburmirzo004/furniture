@@ -1,18 +1,18 @@
 from django.core.validators import MinValueValidator
 from django.db import models
-
+from django.utils.translation import gettext_lazy as _
 from shared.models import BaseModel
 
 
 class ProductCategory(BaseModel):
     icon = models.CharField(
         max_length=255,
-        verbose_name="Icon",
-        help_text="CSS icon class, e.g. 'fa fa-couch'"
+        verbose_name=_("Icon"),
+        help_text=_("CSS icon class, e.g. 'fa fa-couch'")
     )
     name = models.CharField(
         max_length=255,
-        verbose_name="Name"
+        verbose_name=_("Name")
     )
     parent = models.ForeignKey(
         'self',
@@ -20,11 +20,11 @@ class ProductCategory(BaseModel):
         related_name='children',
         null=True,
         blank=True,
-        verbose_name="Parent category"
+        verbose_name=_("Parent category")
     )
     is_active = models.BooleanField(
         default=True,
-        verbose_name="Is active"
+        verbose_name=_("Is active")
     )
 
     def __str__(self):
@@ -32,14 +32,14 @@ class ProductCategory(BaseModel):
 
     class Meta:
         db_table = "product_category"
-        verbose_name = "Product Category"
-        verbose_name_plural = "Product Categories"
+        verbose_name = _("Product category")
+        verbose_name_plural = _("Product categories")
 
 
 class ProductTag(BaseModel):
     name = models.CharField(
         max_length=128,
-        verbose_name="Name"
+        verbose_name=_("Name")
     )
 
     def __str__(self):
@@ -47,20 +47,20 @@ class ProductTag(BaseModel):
 
     class Meta:
         db_table = "product_tag"
-        verbose_name = "Product Tag"
-        verbose_name_plural = "Product Tags"
+        verbose_name = _("Product tag")
+        verbose_name_plural = _("Product tags")
 
 
 class ProductColor(BaseModel):
     name = models.CharField(
         max_length=64,
-        verbose_name="Name",
-        help_text="e.g. Walnut Brown, Oak Natural"
+        verbose_name=_("Name"),
+        help_text=_("e.g. Walnut Brown, Oak Natural")
     )
     hex_code = models.CharField(
         max_length=7,
-        verbose_name="HEX Code",
-        help_text="e.g. #8B4513"
+        verbose_name=_("HEX code"),
+        help_text=_("e.g. #8B4513")
     )
 
     def __str__(self):
@@ -68,38 +68,39 @@ class ProductColor(BaseModel):
 
     class Meta:
         db_table = "product_color"
-        verbose_name = "Product Color"
-        verbose_name_plural = "Product Colors"
+        verbose_name = _("Product color")
+        verbose_name_plural = _("Product colors")
 
 
 class Manufacture(BaseModel):
     name = models.CharField(
         max_length=255,
-        verbose_name="Name"
+        verbose_name=_("Name")
     )
     logo = models.ImageField(
         upload_to="manufacturers/",
         null=True,
         blank=True,
-        verbose_name="Logo"
+        verbose_name=_("Logo")
     )
     country = models.CharField(
         max_length=128,
-        verbose_name="Country",
-        null=True, blank=True,
-        help_text="Country of origin"
+        null=True,
+        blank=True,
+        verbose_name=_("Country"),
+        help_text=_("Country of origin")
     )
     description = models.TextField(
         blank=True,
-        verbose_name="Description"
+        verbose_name=_("Description")
     )
     website = models.URLField(
         blank=True,
-        verbose_name="Website"
+        verbose_name=_("Website")
     )
     is_active = models.BooleanField(
         default=True,
-        verbose_name="Is active"
+        verbose_name=_("Is active")
     )
 
     def __str__(self):
@@ -107,61 +108,61 @@ class Manufacture(BaseModel):
 
     class Meta:
         db_table = "manufacture"
-        verbose_name = "Manufacture"
-        verbose_name_plural = "Manufactures"
+        verbose_name = _("Manufacture")
+        verbose_name_plural = _("Manufactures")
 
 
 class ProductStatus(models.TextChoices):
-    AVAILABLE = "AVAILABLE", "Available"
-    OUT_OF_STOCK = "OUT_OF_STOCK", "Out of Stock"
-    DISCONTINUED = "DISCONTINUED", "Discontinued"
-    COMING_SOON = "COMING_SOON", "Coming Soon"
+    AVAILABLE = "AVAILABLE", _("Available")
+    OUT_OF_STOCK = "OUT_OF_STOCK", _("Out of stock")
+    DISCONTINUED = "DISCONTINUED", _("Discontinued")
+    COMING_SOON = "COMING_SOON", _("Coming soon")
 
 
 class Product(BaseModel):
     name = models.CharField(
         max_length=255,
-        verbose_name="Name"
+        verbose_name=_("Name")
     )
     sku = models.CharField(
         max_length=64,
         unique=True,
-        verbose_name="SKU",
-        help_text="Stock Keeping Unit — unique product code"
+        verbose_name=_("SKU"),
+        help_text=_("Stock Keeping Unit — unique product code")
     )
     description = models.TextField(
-        verbose_name="Description"
+        verbose_name=_("Description")
     )
     short_description = models.CharField(
         max_length=512,
         blank=True,
-        verbose_name="Short description"
+        verbose_name=_("Short description")
     )
     image = models.ImageField(
         upload_to="product_images/",
-        verbose_name="Main Image"
+        verbose_name=_("Main image")
     )
 
     price_uzs = models.DecimalField(
         max_digits=15,
         decimal_places=2,
         validators=[MinValueValidator(0)],
-        verbose_name="Price (UZS)",
-        help_text="Price in Uzbek Sum"
+        verbose_name=_("Price (UZS)"),
+        help_text=_("Price in Uzbek sum")
     )
     price_usd = models.DecimalField(
         max_digits=10,
         decimal_places=2,
         validators=[MinValueValidator(0)],
-        verbose_name="Price (USD)",
-        help_text="Price in US Dollar"
+        verbose_name=_("Price (USD)"),
+        help_text=_("Price in US dollar")
     )
     price_rub = models.DecimalField(
         max_digits=12,
         decimal_places=2,
         validators=[MinValueValidator(0)],
-        verbose_name="Price (RUB)",
-        help_text="Price in Russian Ruble"
+        verbose_name=_("Price (RUB)"),
+        help_text=_("Price in Russian ruble")
     )
 
     discount_price_uzs = models.DecimalField(
@@ -170,7 +171,7 @@ class Product(BaseModel):
         validators=[MinValueValidator(0)],
         null=True,
         blank=True,
-        verbose_name="Discount Price (UZS)"
+        verbose_name=_("Discount price (UZS)")
     )
     discount_price_usd = models.DecimalField(
         max_digits=10,
@@ -178,7 +179,7 @@ class Product(BaseModel):
         validators=[MinValueValidator(0)],
         null=True,
         blank=True,
-        verbose_name="Discount Price (USD)"
+        verbose_name=_("Discount price (USD)")
     )
     discount_price_rub = models.DecimalField(
         max_digits=12,
@@ -186,47 +187,48 @@ class Product(BaseModel):
         validators=[MinValueValidator(0)],
         null=True,
         blank=True,
-        verbose_name="Discount Price (RUB)"
+        verbose_name=_("Discount price (RUB)")
     )
 
     status = models.CharField(
         max_length=20,
         choices=ProductStatus.choices,
         default=ProductStatus.AVAILABLE,
-        verbose_name="Status"
+        verbose_name=_("Status")
     )
 
     manufacture = models.ForeignKey(
         Manufacture,
         on_delete=models.PROTECT,
         related_name='products',
-        verbose_name="Manufacture"
+        verbose_name=_("Manufacture")
     )
     categories = models.ManyToManyField(
         ProductCategory,
         related_name='products',
-        verbose_name="Categories"
+        verbose_name=_("Categories")
     )
     tags = models.ManyToManyField(
         ProductTag,
         related_name='products',
         blank=True,
-        verbose_name="Tags"
+        verbose_name=_("Tags")
     )
     colors = models.ManyToManyField(
         ProductColor,
         through='ProductColorQuantity',
         related_name='products',
         blank=True,
-        verbose_name="Colors"
+        verbose_name=_("Colors")
     )
+
     is_featured = models.BooleanField(
         default=False,
-        verbose_name="Is featured"
+        verbose_name=_("Is featured")
     )
     is_active = models.BooleanField(
         default=True,
-        verbose_name="Is active"
+        verbose_name=_("Is active")
     )
 
     def __str__(self):
@@ -244,8 +246,8 @@ class Product(BaseModel):
 
     class Meta:
         db_table = "product"
-        verbose_name = "Product"
-        verbose_name_plural = "Products"
+        verbose_name = _("Product")
+        verbose_name_plural = _("Products")
         ordering = ['-created_at']
 
 
@@ -254,18 +256,18 @@ class ProductColorQuantity(BaseModel):
         Product,
         on_delete=models.CASCADE,
         related_name='color_quantities',
-        verbose_name="Product"
+        verbose_name=_("Product")
     )
     color = models.ForeignKey(
         ProductColor,
         on_delete=models.CASCADE,
         related_name='product_quantities',
-        verbose_name="Color"
+        verbose_name=_("Color")
     )
     quantity = models.PositiveIntegerField(
         default=0,
-        verbose_name="Quantity",
-        help_text="Stock quantity for this color"
+        verbose_name=_("Quantity"),
+        help_text=_("Stock quantity for this color")
     )
 
     def __str__(self):
@@ -273,8 +275,8 @@ class ProductColorQuantity(BaseModel):
 
     class Meta:
         db_table = "product_color_quantity"
-        verbose_name = "Product Color Quantity"
-        verbose_name_plural = "Product Color Quantities"
+        verbose_name = _("Product color quantity")
+        verbose_name_plural = _("Product color quantities")
         unique_together = ('product', 'color')
 
 
@@ -283,25 +285,25 @@ class ProductImage(BaseModel):
         Product,
         on_delete=models.CASCADE,
         related_name="images",
-        verbose_name="Product"
+        verbose_name=_("Product")
     )
     image = models.ImageField(
         upload_to="product_images/",
-        verbose_name="Image"
+        verbose_name=_("Image")
     )
     is_primary = models.BooleanField(
         default=False,
-        verbose_name="Is primary",
-        help_text="Mark as primary gallery image"
+        verbose_name=_("Is primary"),
+        help_text=_("Mark as primary gallery image")
     )
     alt_text = models.CharField(
         max_length=255,
         blank=True,
-        verbose_name="Alt text"
+        verbose_name=_("Alt text")
     )
     order = models.PositiveSmallIntegerField(
         default=0,
-        verbose_name="Order"
+        verbose_name=_("Order")
     )
 
     def __str__(self):
@@ -309,6 +311,6 @@ class ProductImage(BaseModel):
 
     class Meta:
         db_table = "product_image"
-        verbose_name = "Product Image"
-        verbose_name_plural = "Product Images"
+        verbose_name = _("Product image")
+        verbose_name_plural = _("Product images")
         ordering = ['order']

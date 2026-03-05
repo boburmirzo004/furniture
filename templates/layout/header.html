@@ -1,4 +1,6 @@
 {% load static %}
+{% load i18n %}
+{% load my_tags %}
 <header>
     <!-- header left mobie -->
     <div class="header-mobile d-md-none">
@@ -110,19 +112,19 @@
                             {% url 'shared:about' as about_url %}
                             {% url 'shared:contact' as contact_url %}
                             <li {% if request.path == home_url %} class="nav-link" {% endif %}>
-                                <a href="{% url 'shared:home' %}" class="parent">HOME</a>
+                                <a href="{% url 'shared:home' %}" class="parent">{% trans 'HOME' %}</a>
                             </li>
                             <li {% if request.path == blogs_url %} class="nav-link" {% endif %}>
-                                <a href="{% url 'blogs:list' %}" class="parent">BLOGS</a>
+                                <a href="{% url 'blogs:list' %}" class="parent">{% trans 'BLOGS' %}</a>
                             </li>
                             <li {% if request.path == products_url %} class="nav-link" {% endif %}>
-                                <a href="{% url 'products:list' %}" class="parent">PRODUCTS</a>
+                                <a href="{% url 'products:list' %}" class="parent">{% trans 'PRODUCTS' %}</a>
                             </li>
                             <li {% if request.path == about_url %} class="nav-link" {% endif %}>
-                                <a href="{% url 'shared:about' %}" class="parent">ABOUT</a>
+                                <a href="{% url 'shared:about' %}" class="parent">{% trans 'ABOUT' %}</a>
                             </li>
                             <li {% if request.path == contact_url %} class="nav-link" {% endif %}>
-                                <a href="{% url 'shared:contact' %}" class="parent">CONTACT</a>
+                                <a href="{% url 'shared:contact' %}" class="parent">{% trans 'CONTACT' %}</a>
                             </li>
                         </ul>
                     </div>
@@ -208,30 +210,17 @@
                                 <div id="desktop_language_selector"
                                      class="language-selector groups-selector hidden-sm-down">
                                     <ul class="list-inline">
-                                        <li class="list-inline-itemcurrent">
-                                            <a href="#">
-                                                <img class="img-fluid" src="{% static 'img/home/home1-flas.jpg' %}"
-                                                     alt="English" width="16" height="11">
-                                            </a>
-                                        </li>
+                                        {% get_available_languages as all_lang %}
+                                        {% for lang in all_lang %}
+                                        {% with full_path='/img/flags/'|add:lang.0|add:'.jpg' %}
                                         <li class="list-inline-item">
-                                            <a href="#">
-                                                <img class="img-fluid" src="{% static 'img/home/home1-flas2.jpg' %}"
-                                                     alt="Italiano" width="16" height="11">
+                                            <a href="{{ request.scheme }}://{{ request.get_host }}{% get_full_path  request.path lang.0.lower %}">
+                                                <img class="img-fluid" src="{% static full_path %}"
+                                                     alt="{{ lang.1 }}" width="16" height="11">
                                             </a>
                                         </li>
-                                        <li class="list-inline-item">
-                                            <a href="#">
-                                                <img class="img-fluid" src="{% static 'img/home/home1-flas3.jpg' %}"
-                                                     alt="Français" width="16" height="11">
-                                            </a>
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <a href="#">
-                                                <img class="img-fluid" src="{% static 'img/home/home1-flas4.jpg' %}"
-                                                     alt="Español" width="16" height="11">
-                                            </a>
-                                        </li>
+                                        {% endwith %}
+                                        {% endfor %}
                                     </ul>
                                 </div>
                             </div>

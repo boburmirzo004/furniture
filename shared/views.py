@@ -1,5 +1,6 @@
 from django.contrib import messages
 from django.shortcuts import render
+from django.utils.translation import gettext as _
 
 from shared.forms import ContactForm
 from shared.models import AboutUs, Contact
@@ -16,12 +17,13 @@ def contact_page_view(request):
         form = ContactForm(request.POST)
         if form.is_valid():
             form.save()
-            text = 'Successfully sent to the admin,thanks  for your attention'
+            text = _('Successfully sent to the admin, thanks for your attention.')
             messages.success(request, text)
         else:
-            error_messages = ', '.join([f"{field}: {', '.join(errors)}"
-                                        for field, errors in form.errors.items()])
-            messages.error(request, error_messages)
+            error_messages = ', '.join([
+                f"{field}: {', '.join(errors)}" for field, errors in form.errors.items()
+            ])
+            messages.error(request, _(error_messages))
         return render(request, 'shared/contact.html')
 
 
